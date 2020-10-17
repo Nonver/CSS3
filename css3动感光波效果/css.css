@@ -1,0 +1,98 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
+
+li,a{	
+	list-style: none;
+	text-decoration: none;
+}
+
+body {
+	width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;	
+    margin: auto;
+    background-color: #000;
+}
+
+img{
+    position: absolute;
+    width: 18vw;
+    border-radius: 50%;
+    z-index: 1;/*设置优先级*/
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+ul {
+  width: 18vw;
+  height: 18vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+ul::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: radial-gradient(circle at top left, #1a1a1a, black);/*边框*/
+  border-radius: 50%;
+}
+
+ul li {/*选择li里的第一个li 设置颜色*/
+  border-radius: 50%;
+  background-color: #0014ff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: xz 30s infinite linear;/*动画名称 时间 方式*/
+  mix-blend-mode: screen;
+  filter: blur(1vw);
+}
+
+/*li:nth-child的功能是选择指定元素里的第一个或者第二个第三个*/
+
+ul li:nth-child(2) {/*选择li里的第二个li 设置颜色*/
+  background-color: #00ff08;
+  animation-delay: -10s;
+}
+ul li:nth-child(3) {/*选择li里的第三个li 设置颜色*/
+  background-color: #001fff;
+  animation-direction: reverse;/*先执行一遍动画，然后再逆时针执行*/
+  animation-delay: -20s;
+}
+
+@keyframes xz {
+  25%,{
+  	border-radius: 40% 60% 60% 40% / 40% 60% 40% 60%;/*可删，没影响*/
+  }
+  75% {
+    border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;/*边框的动感光波效果*/
+  }
+  50% {
+    border-radius: 40% 60% 60% 40% / 40% 60% 40% 60%;
+  }
+  100% {
+    transform: rotateZ(360deg);/*按Z轴旋转360度*/
+  }
+}
